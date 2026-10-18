@@ -18,12 +18,12 @@ use OCP\Migration\SimpleMigrationStep;
 use Override;
 
 #[ModifyColumn(table: 'share_external', name: 'id', type: ColumnType::BIGINT, description: 'Remove auto-increment')]
-class Version33000Date20251030081948 extends SimpleMigrationStep {
+class Version33000Date20251030081949 extends SimpleMigrationStep {
 	#[Override]
 	public function changeSchema(IOutput $output, Closure $schemaClosure, array $options): ?ISchemaWrapper {
 		/** @var ISchemaWrapper $schema */
 		$schema = $schemaClosure();
 		$schema->dropAutoincrementColumn('share_external', 'id');
-		return null;
+		return $schema;
 	}
 }
